@@ -7,7 +7,7 @@ A logopedist for Wayland since it seems almost impossible to output non-ASCII ch
 wl-logoped <String>
 ```
 Use something like [xremap](https://github.com/xremap/xremap) to assign a key.
-I use this on my Nordic ISO keyboard using a `us` as layout:
+I use this on my Nordic ISO keyboard with `us` as the layout:
 ```yml
 virtual_modifiers:
   - KEY_102ND
