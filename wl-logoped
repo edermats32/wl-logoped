@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+# save the old clipboard content
+old_clip=$(wl-paste 2>/dev/null) 
+
+# set cliboard content to input arg and paste using 
+printf "%s" "$1" | wl-copy &&  wtype -M ctrl v -m ctrl && 
+  # Sets the back cliboard to old content
+  sleep 0.05 && printf "%s" "$old_clip" | wl-copy
