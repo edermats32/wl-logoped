@@ -10,10 +10,25 @@ A logopedist for Wayland since it seems almost impossible to output non-ASCII ch
 ```sh
 wl-logoped <string> [timeout] [paste keystroke]
 ```
-### Example: Output éûÄ¤ with ctrl+shift+v and default timeout
+```sh
+# Default values:
+  timeout         : 0.05
+  paste keystroke : -M ctrl -k v -m ctrl
+```
+#### Example: Output éûÄ¤ with ctrl+shift+v as paste and default timeout
 ```sh
 wl-logoped 'éûÄ¤' '' '-M ctrl -M shift -k v -m ctrl -m shift'
 ```
+> Note that we must leave `[timeout]` as an empty string
+
+> The keystroke syntax is the same as for [`wtype`](https://github.com/atx/wtype)
+
+#### Example: Output 🥔 with a 1 second timeout and default keystroke for paste
+```sh
+wl-logoped 'éûÄ¤' '1.0'
+```
+> 
+
 # How to actually use it 
 Use something like [xremap](https://github.com/xremap/xremap) to assign a key.
 I use this on my Nordic ISO keyboard with `us` as the layout:
