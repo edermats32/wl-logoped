@@ -8,11 +8,13 @@ A logopedist for Wayland since it seems almost impossible to output non-ASCII ch
 # Usage
 
 ```sh
-wl-logoped <String> [-]
+wl-logoped <string> [timeout] [paste keystroke]
 ```
-The optional `-` flag makes the command use your regular clipboard instead of the primary selection.  
-This will overwrite whatever you currently have copied to your regular `wl-clipboard`.
-
+### Example: Output éûÄ¤ with ctrl+shift+v and default timeout
+```sh
+wl-logoped 'éûÄ¤' '' '-M ctrl -M shift -k v -m ctrl -m shift'
+```
+# How to actually use it 
 Use something like [xremap](https://github.com/xremap/xremap) to assign a key.
 I use this on my Nordic ISO keyboard with `us` as the layout:
 > `KEY_102ND` is not normally used since `us` layout is ANSI which doesn't have that key
