@@ -25,7 +25,7 @@ wl-logoped 'éûÄ¤' '' '-M ctrl -M shift -k v -m ctrl -m shift'
 
 #### Example: Output 🥔 with a 1 second timeout and default keystroke for paste
 ```sh
-wl-logoped 'éûÄ¤' '1.0'
+wl-logoped '🥔' '1.0'
 ```
 > 
 
