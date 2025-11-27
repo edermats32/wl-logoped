@@ -1,6 +1,10 @@
 # wl-logoped
 A logopedist for Wayland since it seems almost impossible to output non-ASCII characters, atleast in Chromium-based applikations.
 
+# Dependencies
+- [`wl-clipboard`](https://github.com/bugaevc/wl-clipboard)
+- [`wtype`](https://github.com/atx/wtype)
+
 # Usage
 
 ```sh
@@ -39,10 +43,12 @@ keymap:
 
 # Problems with alternative methods
 
-- wtype - don't work in chromium Chromium (atleast)
-- ydotool - don't work if keyboard layout is missing the char
-- wlrctl - Only ascii strings are currently supported
-- dotool - `dotool: WARNING: impossible character for layout: ä`
+| Tool       | Issue                                                    |
+|------------|----------------------------------------------------------|
+| `wtype`    | Doesn't work in Chromium (at least)                      |
+| `ydotool`  | Doesn't work if keyboard layout is missing the character |
+| `wlrctl`   | Only ASCII strings are currently supported               |
+| `dotool`   | `dotool: WARNING: impossible character for layout: ä`    |
 
 # Related Issues
 
