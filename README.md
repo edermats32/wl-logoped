@@ -15,8 +15,10 @@ wl-logoped <string> [timeout] [paste keystroke]
   timeout         : 0.05
   paste keystroke : -M ctrl -k v -m ctrl
 ```
-> Since we save the string in `wl-clipboard`, a timeout is used to give time for the paste to complete before restoring the clipboard we temporarily overwrote. **If your output is not the string you inputted, try increasing the timeout.**
+> Since we save the string in `wl-clipboard`, a timeout is used to give time for the paste to complete before restoring the clipboard we temporarily overwrote.  
+> **If your output is not the string you inputted, try increasing the timeout.**
  
+> Almost everything use the default ctrl+v, but it can be changed if you need to.  
 > The keystroke syntax is the same as for [`wtype`](https://github.com/atx/wtype)
 
 #### Example: Output éûÄ¤ with ctrl+shift+v as paste and default timeout
