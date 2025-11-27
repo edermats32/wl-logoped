@@ -1,9 +1,27 @@
 #!/usr/bin/env sh
+LOCK_FILE='/tmp/wl-logoped.lock'
+STRING="$1"
 
-# save the old clipboard content
-old_clip=$(wl-paste 2>/dev/null) 
+INTERVAL='0.05'
+[ -n "$2" ] && INTERVAL="$2"
 
-# set cliboard content to input arg and paste using 
-printf "%s" "$1" | wl-copy &&  wtype -M ctrl v -m ctrl && 
-  # Sets the back cliboard to old content
-  sleep 0.05 && printf "%s" "$old_clip" | wl-copy
+# Creates a lock_file (dir) and exit if already exists
+mkdir "$LOCK_FILE" 2>/dev/null || exit 1
+
+# Ensure lock_file is removed at end of script or if ctrl+c, killed, crashed etc
+trap 'rmdir "$LOCK_FILE"' EXIT INT TERM
+
+# Save the old clipboard content
+old_clip=$(wl-paste 2>/dev/null)
+
+# Add the input string to the clipboard and use ctrl+v to paste
+printf "%s" "$STRING" | wl-copy
+wtype -M ctrl -k v -m ctrl
+
+# Give it time to output before restoring the old clipboard
+sleep "$INTERVAL"
+
+# Restore old clipboard
+[ -n "$old_clip" ] && printf "%s" "$old_clip" | wl-copy
+
+# $LOCK_FILE removed by trap
